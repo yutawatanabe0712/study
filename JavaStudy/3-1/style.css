@@ -11,27 +11,27 @@
 }
 
 header {
-    background-color: #1e2564;
+    background-color: #141f40;
     width: 400px;
     height: 100px;
 }
 
 .left {
-    background-color: #87cc9a;
+    background-color: #80bfa8;
     width: 150px;
     height: 250px;
     float: left;
 }
 
 .right {
-    background-color: #8c3636;
+    background-color: #8c2727;
     width: 250px;
     height: 250px;
     float: right;
 }
 
 footer {
-    background-color: #e08824;
+    background-color: #d98d30;
     width: 400px;
     height: 100px;
 }
