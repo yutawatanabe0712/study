@@ -10,7 +10,7 @@
 }
 
 .color-navy {
-    background-color: #1e2564;
+    background-color: #141f40;
     width: calc(150px + 250px);
     height: 100px;
 }
@@ -20,7 +20,7 @@
 }
 
 .color-green {
-    background-color: #87cc9a;
+    background-color: #80bfa8;
     width: 150px;
     height: 250px;
 }
@@ -34,7 +34,7 @@
 }
 
 .color-pink {
-    background-color: #e78b76;
+    background-color: #ff9e6b;
     width: 100px;
     height: 150px;
 }
@@ -46,24 +46,24 @@
 }
 
 .color-yellow {
-    background-color: #e9cc29;
+    background-color: #dbd400;
     height: 50px;
 }
 
 .color-blue {
-    background-color: #4890cf;
+    background-color: #0093b7;
     width: 150px;
     height: 100px;
 }
 
 .color-red {
-    background-color: #8c3636;
+    background-color: #8c2727;
     width: 250px;
     height: 100px;
 }
 
 .color-orange {
-    background-color: #e08824;
+    background-color: #d98d30;
     width: calc(150px + 250px);
     height: 100px;
 }
