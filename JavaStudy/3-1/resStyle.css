@@ -1,0 +1,43 @@
+@media  screen and (max-width: 767px) {
+
+    .wrapper {
+        max-width: 250px;
+    }
+
+    header {
+        width: 250px;
+    }
+
+   .right {
+        width: 100px;
+   }
+
+   footer {
+        width: 250px;
+   }
+}
+
+@media  screen and (max-width: 479px) {
+
+    .wrapper {
+        max-width: 150px;
+    }
+
+    header {
+        width: 150px;
+    }
+
+    .left {
+        width: 150px;
+        float: none;
+    }
+
+   .right {
+        width: 150px;
+        float: none;
+   }
+
+   footer {
+        width: 150px;
+   }
+}
