@@ -40,7 +40,8 @@ public class Main {
     //  連結した値を返り値とする変数を定義しなさい。
 
     public static String getName (String firstName, String lastName) {
-    	return firstName + " " + lastName;
+    	String fullName =  firstName + lastName;
+    	return fullName;
     }
 
 
