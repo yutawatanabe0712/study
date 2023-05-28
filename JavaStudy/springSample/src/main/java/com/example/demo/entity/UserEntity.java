@@ -18,7 +18,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "user", schema = "public")
+@Table(name = "user", schema = "public")	
 public class UserEntity {
   /**
    * ID
