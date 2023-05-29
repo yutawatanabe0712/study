@@ -2,13 +2,13 @@ package com.example.demo.service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.UserRequest;
+import com.example.demo.dto.UserUpdateRequest;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserRepository;
 
@@ -38,9 +38,9 @@ public class UserService {
 * ユーザー情報 主キー検索
 * @return 検索結果
 */
-  public Optional<UserEntity> findById(Integer id) {
-	  return userRepository.findById(id);
-}
+  public UserEntity findById(Integer id) {//引数には後ほど動的に受け取ることになるidを入れる
+	    return userRepository.findById(id).get();//userRepositoryクラスの、findByIdメソッドより、引数に入ってきたid先のデータを
+	  }
 
   
   /**
@@ -57,4 +57,17 @@ public class UserService {
 	  user.setUpdateDate(date);//UserEntityクラスのメソッドsetUpdateDate(セッター)より、Dateクラスを引数に入れている
 	  userRepository.save(user);//userRepositoryクラスのsaveメソッドより、引数にUserEntityクラスを入れている。
 	  }
+  
+  /**
+* ユーザー情報 更新
+* @param user ユーザー情報
+*/
+  public void update(UserUpdateRequest userUpdateRequest) {
+	UserEntity user = findById(userUpdateRequest.getId());//findByIdメソッドより、userUpdateRequestクラスのgetIゲッターより、idを引数に入れて、id検索。検索して取ってきたデータをuserに格納。
+	user.setName(userUpdateRequest.getName());
+	user.setPhone(userUpdateRequest.getPhone());
+	user.setUpdateDate(new Date());
+	userRepository.save(user);
+	  
+  }
 }

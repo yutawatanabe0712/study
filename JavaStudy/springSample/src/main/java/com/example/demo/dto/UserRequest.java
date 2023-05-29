@@ -24,6 +24,7 @@ public class UserRequest implements Serializable {
 	* 住所
 */
 	//文字数255、エラーメッセージ”住所は255桁以内で入力してください”でバリデーションかけること
+	@NotEmpty(message = "住所を入力してください") //@NotEmptyアノテーションより、空白のバリデーションをかける
 	@Size(max = 255,message = "住所は255桁以内で入力してください")//@Sizeアノテーションより、文字数制限のバリデーションをかける。
 	private String address;
 	/**
