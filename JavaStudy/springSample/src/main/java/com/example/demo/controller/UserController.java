@@ -91,22 +91,22 @@ public class UserController {
 	}
 
 	/**
-* ユーザー編集画面を表示
-* @param id 表示するユーザーID
-* @param model Model
-* @return ユーザー編集画面	
-*/
-  @GetMapping("/user/{id}/edit")
-  public String displayEdit(@PathVariable Integer id, Model model) {
-	  UserEntity user = userService.findById(id);//主キー検索したデータを取得してUserEntity型のuserに格納
+	* ユーザー編集画面を表示
+	* @param id 表示するユーザーID
+	* @param model Model
+	* @return ユーザー編集画面	
+	*/
+	@GetMapping("/user/{id}/edit")
+	public String displayEdit(@PathVariable Integer id, Model model) {
+		UserEntity user = userService.findById(id);//主キー検索したデータを取得してUserEntity型のuserに格納
 		UserUpdateRequest userUpdateRequest = new UserUpdateRequest();//userUpdateRequestのインスタンス化
-	userUpdateRequest.setId(user.getId());//userUpdateRequestクラスのsetIdセッターより、UserEntityクラスのgetIdゲッターより、idをセットする
-	userUpdateRequest.setName(user.getName());
-	userUpdateRequest.setAddress(user.getAddress());
-	userUpdateRequest.setPhone(user.getPhone());
-	  model.addAttribute("userUpdateRequest", userUpdateRequest);//ModelクラスのaddAttributeメソッドより、userUpdateRequestにセットしたデータをViewにuserUpdateRequestというオブジェクト名で渡す
-	  return "user/edit";//edit.htmlへ遷移する
-  }
+		userUpdateRequest.setId(user.getId());//userUpdateRequestクラスのsetIdセッターより、UserEntityクラスのgetIdゲッターより、idをセットする
+		userUpdateRequest.setName(user.getName());
+		userUpdateRequest.setAddress(user.getAddress());
+		userUpdateRequest.setPhone(user.getPhone());
+		model.addAttribute("userUpdateRequest", userUpdateRequest);//ModelクラスのaddAttributeメソッドより、userUpdateRequestにセットしたデータをViewにuserUpdateRequestというオブジェクト名で渡す
+		return "user/edit";//edit.htmlへ遷移する
+	}
 
 	/**
 * ユーザー更新
@@ -127,5 +127,17 @@ public class UserController {
 	// ユーザー情報の更新
 	  userService.update(userUpdateRequest);//userServiceクラスのupdateメソッドより、Entityに更新データの入っているuserUpdateRequestを保存する
 	  return String.format("redirect:/user/%d", userUpdateRequest.getId());//Stringクラスのformatメソッドより、redirect:/user/%dの"%d"部分に、userUpdateRequest.getId()より得た」idを入れて遷移する
+  }
+
+	/**
+* ユーザー情報削除
+* @param id 表示するユーザーID
+* @param model Model
+* @return ユーザー情報詳細画面
+*/
+  @GetMapping("/user/{id}/delete")
+  public String delete(@PathVariable Integer id) {//@PathVariableによって、動的にidが入ってくる
+	  userService.delete(id);//userServiceクラスのdeleteメソッドが動く。
+	  return "redirect:/user/list";//list.htmlに遷移する
   }
 }
